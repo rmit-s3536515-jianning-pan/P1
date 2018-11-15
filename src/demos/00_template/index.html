@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Template</title>
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<style>
+  .test > div:first-child{
+    min-height: 300px;
+    /* margin-right:20px; */
+    /* margin-bottom: 100px; */
+  }
+
+  .blue {
+    background-color: blue !important;
+
+  }
+
+  .black{
+    background-color:black;
+  }
+
+  .cb{
+    background-color:cyan !important;
+  }
+
+.min{
+  min-height: 300px;
+}
+
+.yellow{
+  background-color: yello !important;
+}
+
+</style>
+
+</head>
+<body>
+
+  <div id="presq">
+    <div class="container">
+    <div class ="row test">
+          <div class="col black id_1 mr-3">
+
+          </div>
+
+          <div class="col black id_1 id_2 mr-3">
+
+          </div>
+
+          <div class="col black id_1 mr-3" >
+
+          </div>
+
+          <div class="col black id_2 mr-3">
+
+          </div>
+    </div>
+    </div>
+  </div>
+
+
+
+  <div id="essential">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3 offset-md-2 bg-success min id_1">
+
+            </div>
+            <div class="col-md-3 offset-md-2 bg-danger min id_2">
+
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  var is1Clicked = 0;
+  var is2Clicked = 0; var is3Clicked = 0;
+  var is4Clicked = 0; var isId_2Clicked = 0;
+  var count1 = -1; var count2 = -2;
+  var both = 0;
+  jQuery(document).ready(function(){
+
+    $("#essential .id_1").click(function(){
+      $(this).toggleClass("bg-success"); //initial color
+      $(this).toggleClass("bg-warning"); // color after clicked
+      $("#presq .id_1").toggleClass("bg-warning");
+      // if(is1Clicked && is2Clicked && is3Clicked){
+        // is1Clicked = !is1Clicked;
+        // is2Clicked = !is2Clicked;
+        // is3Clicked = !is3Clicked;
+        count1 = count1*-1;
+        is1Clicked += count1;
+        is2Clicked += count1;
+        is3Clicked += count1;
+
+        both =  isId_2Clicked + is2Clicked;
+      // }
+      // if(isId_2Clicked==2){
+        if(both==3){ //isId_2Clicked && is2Clicked
+          // $("#presq .id_2.id_1").toggleClass("blue");
+            $("#presq .id_2.id_1").addClass("cb");
+        }
+        else if(both==2){
+              $("#presq .id_2.id_1").removeClass("cb");
+                $("#presq .id_2.id_1").addClass("black");
+        }
+        else if(both==1){
+            $("#presq .id_2.id_1").removeClass("cb");
+              $("#presq .id_2.id_1").removeClass("blue");
+                $("#presq .id_2.id_1").addClass("bg-warning");
+        }
+        else{
+          $("#presq .id_2.id_1").removeClass("cb");
+            $("#presq .id_2.id_1").removeClass("blue");
+      $("#presq .id_2.id_1").removeClass("bg-warning");
+              $("#presq .id_2.id_1").addClass("black");
+        }
+      // }
+
+
+console.log(isId_2Clicked);
+     });
+
+
+    $("#essential .id_2").click(function(){
+      // if($("#presq .id_2").hasClass("id_1")){
+      //   // $("#presq .id_2").toggleClass("blue");
+      //   // $("#presq .id_2").toggleClass("");
+      //   $("#presq .id_2").toggleClass("cb");
+      // }
+      // else{
+        $("#essential .id_2").toggleClass("bg-danger"); // initial color
+        $("#essential .id_2").toggleClass("blue"); // color after clicked
+
+$("#presq .id_2").toggleClass("blue");
+          // is4Clicked = !is4Clicked;
+          // isId_2Clicked = !isId_2Clicked;
+          count2 = -1 * count2;
+          is4Clicked += count2;
+          isId_2Clicked += count2;
+          both =  isId_2Clicked + is2Clicked;
+
+
+          if(both==3){ //isId_2Clicked && is2Clicked
+            // $("#presq .id_2.id_1").toggleClass("blue");
+              $("#presq .id_2.id_1").addClass("cb");
+          }
+          else if(both==2){
+                $("#presq .id_2.id_1").removeClass("cb");
+                  $("#presq .id_2.id_1").addClass("black");
+          }
+          else if(both==1){
+              $("#presq .id_2.id_1").removeClass("cb");
+                $("#presq .id_2.id_1").removeClass("blue");
+                  $("#presq .id_2.id_1").addClass("bg-warning");
+          }
+          else{
+            $("#presq .id_2.id_1").removeClass("cb");
+              $("#presq .id_2.id_1").removeClass("blue");
+        $("#presq .id_2.id_1").removeClass("bg-warning");
+                $("#presq .id_2.id_1").addClass("black");
+          }
+
+          console.log(both);
+      })
+
+
+
+
+  });
+
+
+
+  </script>
+    <!-- <div id="presq">
+    </div>
+
+
+
+<div id="essential">
+
+</div> -->
+
+
+
+
+    <!-- <script type="text/babel">
+
+      var Pres1 = React.createClass({
+          render:function(){
+            return (
+              <div className="container">
+              <div className ="row test">
+                    <div className="col bg-info">
+
+                    </div>
+
+                    <div className="col bg-success">
+
+                    </div>
+
+                    <div className="col bg-danger">
+
+                    </div>
+
+                    <div className="col bg-warning">
+
+                    </div>
+              </div>
+              </div>
+            )
+          }
+      });
+
+      ReactDOM.render(<Pres1 /> , document.getElementById("presq"));
+
+
+      var Essential = React.createClass({
+          getInitialState : function(){
+            return {green:true}
+          },
+          handleClick : function(){
+            this.setState({green:!this.state.green})
+          },
+          render:function(){
+            var div_green = "bg-success";
+            if(this.state.green){
+              div_green = "green";
+            }
+            else{
+              div_green = "bg-info";
+            }
+            // let div_green = this.state.green ? "bg-success" : "bg-info";
+            return (
+              <div className="container mt-4">
+                  <div className="row">
+                      <div className="col-md-3 offset-md-2 {div_green} min" onClick={this.handleClick.bind(this)}>
+
+                      </div>
+                      <div className="col-md-3 offset-md-2 bg-danger min">
+
+                      </div>
+                  </div>
+
+              </div>
+            )
+          }
+      });
+  ReactDOM.render(<Essential /> , document.getElementById("essential"));
+    </script> -->
+
+
+    <!-- <div id="container"></div>
+
+    <div id="example"></div>
+
+    <div id="app"></div>
+
+    <div id="e2"></div>
+
+    <script type="text/babel">
+
+        var Bacon = React.createClass(
+          {
+            render : function(){
+              return (
+                <div>
+                  <h3>This is a Component</h3>
+                  <p> This is progrph </p>
+                </div>
+                )
+            }
+          }
+        );
+
+        ReactDOM.render(
+            <h2>Welcome to MY woRLD!</h2>,
+            document.getElementById('container')
+        );
+
+      ReactDOM.render(
+        <Bacon/> , document.getElementById('example')
+      );
+
+      var Movie = React.createClass(  // variable must be Capitalized
+        {
+            render : function()
+              {
+                return (
+                  <div>
+                      <h1>{this.props.title}</h1>
+                      <h2>{this.props.genre}</h2>
+                  </div>
+                )
+              }
+
+        }
+      );
+
+      ReactDOM.render(<Movie title="Actar" genre="action" /> , document.getElementById('app'));
+
+
+      var CheckBox = React.createClass(
+        {
+
+          getInitialState : function(){
+            return {checked:true}
+          },
+          handlerCheckbox : function(){
+            this.setState({checked : !this.state.checked})
+          },
+          render : function(){
+              var msg;
+              if(this.state.checked){
+                msg = "The checkbox is checked";
+              }
+              else{
+                msg = "The checkbox is unchecked";
+              }
+
+              return (
+                <div>
+                    <input type="checkbox" onChange={this.handlerCheckbox} defaultChecked={this.state.checked} />
+                    <p>{msg}</p>
+
+                </div>
+              )
+
+          }
+        }
+      );
+
+      ReactDOM.render(
+        <CheckBox /> , document.getElementById('e2')
+      );
+    </script> -->
+
+
+</body>
+</html>
